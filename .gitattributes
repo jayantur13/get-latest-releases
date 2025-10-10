@@ -1,0 +1,20 @@
+# Ensure consistent line endings across OS
+* text=auto eol=lf
+
+# Treat JS, JSON, YAML, and Markdown as text for diff
+*.js text diff=javascript
+*.json text diff=json
+*.yml text diff=yaml
+*.yaml text diff=yaml
+*.md text diff=markdown
+
+# Keep binaries untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.svg binary
+*.gif binary
+
+# Ensure GitHub syntax highlighting for workflows
+.github/workflows/* linguist-language=YAML

@@ -1,0 +1,34 @@
+name: Update README with latest releases
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update_releases:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # because your action will commit back
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update latest releases
+        uses: jayantur13/get-latest-releases-action@v1
+        with:
+          repos: |
+            vercel/next.js
+            facebook/react
+          readme_path: "README.md"
+          max_repos: "3"
+          theme: list
+          include_body: "true"
+          exclude_prereleases: "false"
+          header_title: "📰 Latest Releases"
+          footer_link_text: "Explore More →"
+          show_global_footer: "true"
+          date_format: "short"
+          skip_if_no_change: "true"
+          auto_commit: "true"
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,55 @@
+name: "Show Latest Releases"
+description: "Update your README with latest GitHub releases."
+author: "jayantur13"
+homepage: "https://github.com/jayantur13/get-latest-releases-action"
+repository: "https://github.com/jayantur13/get-latest-releases-action"
+branding:
+  icon: "refresh-cw"
+  color: "blue"
+
+inputs:
+  repos:
+    description: "List of repositories (owner/repo) separated by newlines"
+    required: true
+  readme_path:
+    description: "Path to the README file"
+    default: "README.md"
+  max_repos:
+    description: "Maximum number of repos to show"
+    default: "5"
+  include_body:
+    description: "Include release description text (true/false)"
+    default: "true"
+  exclude_prereleases:
+    description: "Exclude prereleases (true/false)"
+    default: "true"
+  theme:
+    description: "Theme for markdown layout (table, list, card, compact)"
+    default: "table"
+  header_title:
+    description: "Custom title for the section"
+    default: "🔖 Latest Releases"
+  footer_link_text:
+    description: "Custom footer link text"
+    default: "See All Releases →"
+  show_global_footer:
+    description: "Show global footer link (true/false)"
+    default: "true"
+  date_format:
+    description: "Format of date (ISO, relative, none)"
+    default: "ISO"
+  skip_if_no_change:
+    description: "Skip updating README if no new releases found"
+    default: "true"
+  auto_commit:
+    description: "Auto commit README changes (true/false)"
+    default: "false"
+  token:
+    description: "GitHub token for API"
+    default: "${{ github.token }}"
+
+runs:
+  using: "node24"
+  main: "index.js"
+permissions:
+  contents: write

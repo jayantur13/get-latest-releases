@@ -1,0 +1,33 @@
+# Node modules & dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build and cache artifacts
+dist/
+.cache/
+.tmp/
+coverage/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Local environment or editor settings
+.env
+.vscode/
+.idea/
+
+# Action-specific cache
+.last-releases.json
+
+# Optional: if you generate README automatically in tests
+README.test.md
+README.preview.md
+
+# macOS/Linux temp files
+*.swp
+*~
