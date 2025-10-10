@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/marketplace/actions/get-latest-releases"><img src="https://img.shields.io/badge/GitHub%20Marketplace-Get%20Latest%20Releases-blue?logo=github" alt="Marketplace" /></a>
-  <a href="https://github.com/jayantur13/get-latest-releases/actions"><img src="https://github.com/jayantur13/get-latest-releases/workflows/Test/badge.svg" alt="Build Status" /></a>
+  <a href="https://github.com/jayantur13/get-latest-releases/actions"><img src="https://github.com/jayantur13/get-latest-releases/actions/workflows/latest-releases.yml/badge.svg" alt="Build Status" /></a>
   <a href="https://github.com/jayantur13/get-latest-releases/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jayantur13/get-latest-releases" alt="License" /></a>
 </p>
 
@@ -136,17 +136,17 @@ Run npm run test:local
 ## 📸 Theme results
 
 > Card View
-![card view](/src/theme_image/ss_card.jpeg)
+> ![card view](/src/theme_image/ss_card.jpeg)
 
 > Table View
-![table view](/src/theme_image/ss_table.jpeg)
+> ![table view](/src/theme_image/ss_table.jpeg)
 
 > List View
-![list view](/src/theme_image/ss_list.jpeg)
+> ![list view](/src/theme_image/ss_list.jpeg)
 
 > Compact View
-![compact view](/src/theme_image/ss_compact.jpeg)
----
+
+## ![compact view](/src/theme_image/ss_compact.jpeg)
 
 ## 📢 Changelog
 
