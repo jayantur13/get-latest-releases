@@ -1,8 +1,8 @@
-name: "Show Latest Releases"
+name: "Get Latest Releases"
 description: "Update your README with latest GitHub releases."
 author: "jayantur13"
-homepage: "https://github.com/jayantur13/get-latest-releases-action"
-repository: "https://github.com/jayantur13/get-latest-releases-action"
+homepage: "https://github.com/jayantur13/get-latest-releases"
+repository: "https://github.com/jayantur13/get-latest-releases"
 branding:
   icon: "refresh-cw"
   color: "blue"

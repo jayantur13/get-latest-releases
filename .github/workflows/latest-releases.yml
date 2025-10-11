@@ -1,4 +1,4 @@
-name: Update README with latest releases
+name: Fetch and upate with latest release
 
 on:
   schedule:
