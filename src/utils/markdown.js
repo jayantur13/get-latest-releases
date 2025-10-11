@@ -1,24 +1,60 @@
 import fs from "fs";
 
 export function updateSection(readmePath, newMarkdown, headerTitle) {
-  const start = "<!--LATEST_RELEASES_START-->";
-  const end = "<!--LATEST_RELEASES_END-->";
+  const START = "<!--LATEST_RELEASES_START-->";
+  const END = "<!--LATEST_RELEASES_END-->";
+  const content = fs.readFileSync(readmePath, "utf8");
+  const lines = content.split("\n");
 
-  const readme = fs.readFileSync(readmePath, "utf8");
-  const regex = new RegExp(`${start}[\\s\\S]*?${end}`, "m");
+  let insideFence = false;
+  let insideTarget = false;
+  let targetStart = -1;
+  let targetEnd = -1;
 
-  if (!regex.test(readme)) {
-    console.error(
-      `❌ Markers not found in ${readmePath}.\n` +
-        `Please add the following to your README before running this action:\n\n` +
-        `${start}\n\n${end}\n`
-    );
-    if (process.env.GITHUB_ACTIONS) process.exit(1);
-    else console.warn("⚠️ Skipping README update (markers missing).");
+  // Track fenced code blocks by line scanning (safe for any language block)
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Toggle code block state
+    if (line.startsWith("```")) {
+      insideFence = !insideFence;
+    }
+
+    // Detect release start marker outside fences
+    if (!insideFence && line.includes(START)) {
+      insideTarget = true;
+      targetStart = i;
+    }
+
+    // Detect release end marker outside fences
+    if (insideTarget && !insideFence && line.includes(END)) {
+      targetEnd = i;
+      break;
+    }
   }
 
-  const content = `${start}\n\n${headerTitle}\n\n${newMarkdown}\n${end}`;
-  const updated = readme.replace(regex, content);
+  if (targetStart === -1 || targetEnd === -1) {
+    console.warn("⚠️ No valid release section found outside code blocks.");
+    return;
+  }
+
+  const header =
+    headerTitle && headerTitle.trim() !== ""
+      ? `${headerTitle.trim()}\n\n`
+      : "";
+
+  const replacement = [
+    START,
+    header + newMarkdown.trim(),
+    END,
+  ];
+
+  const updated = [
+    ...lines.slice(0, targetStart),
+    ...replacement,
+    ...lines.slice(targetEnd + 1),
+  ].join("\n");
+
   fs.writeFileSync(readmePath, updated);
-  console.log("✅ README updated successfully.");
+  console.log("✅ Release section updated outside code fences.");
 }

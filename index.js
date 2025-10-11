@@ -18,7 +18,8 @@ const MAX = parseInt(INPUT("max_repos", "5"));
 const INCLUDE_BODY = INPUT("include_body", "true") === "true";
 const EXCLUDE_PRE = INPUT("exclude_prereleases", "true") === "true";
 const THEME = INPUT("theme", "table");
-const HEADER = INPUT("header_title", "🔖 Latest Releases");
+const HEADER_INPUT = INPUT("header_title", "").trim();
+const HEADER = HEADER_INPUT ? HEADER_INPUT : "";
 const FOOTER = INPUT("footer_link_text", "Explore More →");
 const SHOW_GLOBAL_FOOTER = INPUT("show_global_footer") === "true";
 const DATE_FORMAT = INPUT("date_format", "ISO");
@@ -98,7 +99,7 @@ export default async function run() {
       lastReleases = JSON.parse(fs.readFileSync(LAST_FILE, "utf8"));
     } catch {
       console.warn(
-        "⚠️ Could not parse .last-releases.json — continuing fresh."
+        "⚠️  Could not parse .last-releases.json — continuing fresh."
       );
     }
   }
@@ -120,7 +121,7 @@ export default async function run() {
 
   // Proceed only if there are new releases
   console.log("🧾 Updating README.md section...");
-  updateSection(README, markdown, HEADER);
+  updateSection(README, markdown, HEADER ?? "");
 
   // Save latest state
   fs.writeFileSync(LAST_FILE, JSON.stringify(newTags, null, 2));

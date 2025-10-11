@@ -12,22 +12,24 @@ export function renderCompact(
     .map((r) => {
       const preBadge = r.prerelease ? " ⚠️ *Pre-release*" : "";
       const releasesUrl = `https://github.com/${r.repo}/releases`;
+      const dateStr = formatDate(r.published_at, dateFormat);
 
-      // One-liner: repo + tag + date + optional short summary
-      let entry = `- **[${r.repo}](${r.html_url})** — ${r.tag_name}${preBadge} (${formatDate(r.published_at, dateFormat)})`;
+      let entry = `- **[${r.repo}](${r.html_url})** — ${r.tag_name}${preBadge}${
+        dateStr ? ` (${dateStr})` : ""
+      }`;
 
       if (includeBody && r.body) {
-        const shortSummary = r.body.split("\n").filter(Boolean)[0]; // first non-empty line
+        const shortSummary = r.body.split("\n").filter(Boolean)[0] || "";
         entry += ` — ${shortSummary.slice(0, 120)}... [More](${releasesUrl})`;
       } else {
         entry += ` — [See all releases →](${releasesUrl})`;
       }
 
-      return entry;
+      return entry.trim();
     })
     .join("\n");
 
-  return `\n${markdown}\n${
+  return `${markdown.trim()}${
     showGlobalFooter ? `\n\n[${footerText}](${actorUrl})` : ""
   }`;
 }

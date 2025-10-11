@@ -10,28 +10,32 @@ export function renderList(
 ) {
   const markdown = releases
     .map((r) => {
-      // 🏷️ Add badge if prerelease
       const preBadge = r.prerelease ? " ⚠️ *Pre-release*" : "";
       const releasesUrl = `https://github.com/${r.repo}/releases`;
-      const header = `### [${r.repo}](${r.html_url}) — **${
-        r.tag_name
-      }**${preBadge} (${formatDate(r.published_at, dateFormat)})`;
+      const dateStr = formatDate(r.published_at, dateFormat);
+
+      const header = `### [${r.repo}](${r.html_url}) — **${r.tag_name}**${preBadge}${
+        dateStr ? ` (${dateStr})` : ""
+      }`;
 
       const bodySection =
         includeBody && r.body
-          ? `\n<details>\n<summary>🔍 View Release Details</summary>\n\n${r.body
-              .split("\n")
-              .slice(0, 20)
-              .join(
-                "\n"
-              )}\n\n[🔗 See all releases →](${releasesUrl})\n\n</details>`
-          : `\n[🔗 See all releases →](${releasesUrl})`;
+          ? [
+              "<details>",
+              "<summary>🔍 View Release Details</summary>",
+              "",
+              r.body.split("\n").slice(0, 20).join("\n"),
+              "",
+              `[🔗 See all releases →](${releasesUrl})`,
+              "</details>",
+            ].join("\n")
+          : `[🔗 See all releases →](${releasesUrl})`;
 
-      return `${header}${bodySection}`;
+      return `${header}\n${bodySection}`.trim();
     })
     .join("\n\n");
 
-  return `\n${markdown}\n${
+  return `${markdown.trim()}${
     showGlobalFooter ? `\n\n[${footerText}](${actorUrl})` : ""
   }`;
 }

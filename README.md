@@ -93,17 +93,24 @@ jobs:
 | --------------------- | --------------------------------------------------------- | --------------------- | -------- |
 | `repos`               | List of repositories (`owner/repo`) separated by newlines | –                     | ✅       |
 | `readme_path`         | Path to your README file                                  | `README.md`           | ❌       |
-| `max_repos`           | Maximum number of repos to display                        | `5`                   | ❌       |
+| `max_repos`           | Maximum number of repositories to display                 | `5`                   | ❌       |
 | `include_body`        | Include release notes text                                | `true`                | ❌       |
 | `exclude_prereleases` | Skip prereleases                                          | `true`                | ❌       |
 | `theme`               | Markdown layout: `table`, `list`, `card`, `compact`       | `table`               | ❌       |
-| `header_title`        | Custom section title                                      | `🔖 Latest Releases`  | ❌       |
+| `header_title`        | Custom section title (value,"", don't pass key)           | `🔖 Latest Releases`  | ❌       |
 | `footer_link_text`    | Text for global footer link                               | `See All Releases →`  | ❌       |
-| `show_global_footer`  | Show/hide footer link                                     | `true`                | ❌       |
+| `show_global_footer`  | Show or hide the footer link                              | `true`                | ❌       |
 | `date_format`         | Date format (`ISO`, `relative`, `none`)                   | `ISO`                 | ❌       |
-| `skip_if_no_change`   | Skip update if no new release                             | `true`                | ❌       |
+| `skip_if_no_change`   | Skip update if no new release is found                    | `true`                | ❌       |
 | `auto_commit`         | Automatically commit README changes                       | `false`               | ❌       |
 | `token`               | GitHub token for API access                               | `${{ github.token }}` | ❌       |
+
+---
+
+## New Release
+
+<!--LATEST_RELEASES_START-->
+<!--LATEST_RELEASES_END-->
 
 ---
 

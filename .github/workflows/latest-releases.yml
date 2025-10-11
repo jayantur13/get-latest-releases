@@ -15,17 +15,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Update latest releases
-        uses: jayantur13/get-latest-releases-action@v1
+        uses: jayantur13/get-latest-releases@v1
         with:
           repos: |
-            vercel/next.js
-            facebook/react
+            jayantur13/get-latest-releases
           readme_path: "README.md"
           max_repos: "3"
           theme: list
           include_body: "true"
           exclude_prereleases: "false"
-          header_title: "📰 Latest Releases"
+          header_title: ""
           footer_link_text: "Explore More →"
           show_global_footer: "true"
           date_format: "short"
