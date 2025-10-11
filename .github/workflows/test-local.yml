@@ -6,6 +6,9 @@ on:
 jobs:
   test_local:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed for git push
+      
     steps:
       - uses: actions/checkout@v4
 
