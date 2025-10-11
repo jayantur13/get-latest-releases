@@ -97,7 +97,7 @@ jobs:
 | `include_body`        | Include release notes text                                | `true`                | ❌       |
 | `exclude_prereleases` | Skip prereleases                                          | `true`                | ❌       |
 | `theme`               | Markdown layout: `table`, `list`, `card`, `compact`       | `table`               | ❌       |
-| `header_title`        | Custom section title (value,"", don't pass key)           | `🔖 Latest Releases`  | ❌       |
+| `header_title`        | Custom section title (value,"")                           | `🔖 Latest Releases`  | ❌       |
 | `footer_link_text`    | Text for global footer link                               | `See All Releases →`  | ❌       |
 | `show_global_footer`  | Show or hide the footer link                              | `true`                | ❌       |
 | `date_format`         | Date format (`ISO`, `relative`, `none`)                   | `ISO`                 | ❌       |

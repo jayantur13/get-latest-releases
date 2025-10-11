@@ -1,12 +1,10 @@
-name: "Update README with Latest Releases"
+name: "[DEV] Test Get Latest Releases (Local)"
 
 on:
-  schedule:
-    - cron: "0 0 * * *"   # every day at midnight UTC
   workflow_dispatch:
 
 jobs:
-  update_releases:
+  test_local_action:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -14,20 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get latest releases
-        uses: jayantur13/get-latest-releases@v1
+      - name: Run local version
+        uses: ./
         with:
           repos: |
-            vercel/next.js
-            facebook/react
+            jayantur13/get-latest-releases
           readme_path: "README.md"
+          max_repos: "3"
           theme: list
           include_body: "true"
-          exclude_prereleases: "true"
+          exclude_prereleases: "false"
           header_title: ""
           footer_link_text: "Explore More →"
           show_global_footer: "true"
           date_format: "short"
           skip_if_no_change: "true"
-          auto_commit: "true"
+          auto_commit: "false"
           token: ${{ secrets.GITHUB_TOKEN }}
