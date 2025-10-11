@@ -1,8 +1,8 @@
-name: "Update README with Latest Releases"
+name: Update README with latest releases
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # every day at midnight UTC
+    - cron: "0 0 * * *" # daily at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -13,17 +13,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Get latest releases
+      - name: Update latest releases
         uses: jayantur13/get-latest-releases@v1
         with:
           repos: |
-            vercel/next.js
-            facebook/react
+            jayantur13/get-latest-releases
           readme_path: "README.md"
+          max_repos: "3"
           theme: list
           include_body: "true"
-          exclude_prereleases: "true"
+          exclude_prereleases: "false"
           header_title: ""
           footer_link_text: "Explore More →"
           show_global_footer: "true"

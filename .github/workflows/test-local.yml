@@ -1,22 +1,23 @@
-name: "[DEV] Test Get Latest Releases (Local)"
+name: 🧪 Test Local Action
 
 on:
   workflow_dispatch:
 
 jobs:
-  test_local_action:
+  test_local:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run local version
+      - name: Install dependencies
+        run: npm install node-fetch@3
+
+      - name: Run local action
         uses: ./
         with:
           repos: |
-            jayantur13/get-latest-releases
+            vercel/next.js
+            facebook/react
           readme_path: "README.md"
           max_repos: "3"
           theme: list
@@ -27,5 +28,5 @@ jobs:
           show_global_footer: "true"
           date_format: "short"
           skip_if_no_change: "true"
-          auto_commit: "false"
+          auto_commit: "true"
           token: ${{ secrets.GITHUB_TOKEN }}
