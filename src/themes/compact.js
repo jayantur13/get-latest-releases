@@ -1,6 +1,6 @@
-import { formatDate } from "../utils/format.js";
+const { formatDate } = require("../utils/format.js");
 
-export function renderCompact(
+function renderCompact(
   releases,
   footerText,
   actorUrl,
@@ -33,3 +33,5 @@ export function renderCompact(
     showGlobalFooter ? `\n\n[${footerText}](${actorUrl})` : ""
   }`;
 }
+
+module.exports = { renderCompact };

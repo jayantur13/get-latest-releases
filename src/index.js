@@ -1,11 +1,11 @@
-import { getLatestRelease } from "./src/utils/fetch.js";
-import { updateSection } from "./src/utils/markdown.js";
-import { autoCommit } from "./src/utils/commit.js";
-import { renderTable } from "./src/themes/table.js";
-import { renderList } from "./src/themes/list.js";
-import { renderCard } from "./src/themes/card.js";
-import { renderCompact } from "./src/themes/compact.js";
-import fs from "fs";
+const fs = require("fs");
+const { getLatestRelease } = require("./utils/fetch.js");
+const { updateSection } = require("./utils/markdown.js");
+const { autoCommit } = require("./utils/commit.js");
+const { renderTable } = require("./themes/table.js");
+const { renderList } = require("./themes/list.js");
+const { renderCard } = require("./themes/card.js");
+const { renderCompact } = require("./themes/compact.js");
 
 const INPUT = (name, def) => process.env[`INPUT_${name.toUpperCase()}`] || def;
 
@@ -34,7 +34,7 @@ if (!REPOS.length) {
   process.exit(1);
 }
 
-export default async function run() {
+async function run() {
   console.log("📘 Checking README.md for release section markers...");
   const readme = fs.existsSync(README) ? fs.readFileSync(README, "utf8") : "";
 
@@ -134,11 +134,11 @@ export default async function run() {
   }
 }
 
-// Only auto-run if not being imported (i.e. in GitHub Actions or direct CLI use)
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (require.main === module) {
+  // Run automatically if this file is executed directly (CLI or GitHub Action)
   run();
-}
-
-if (import.meta.url !== `file://${process.argv[1]}` && process.env.DEBUG) {
+} else if (process.env.DEBUG) {
   console.log("🧪 Index.js imported (not auto-running)...");
 }
+
+module.exports = { run };

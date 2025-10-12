@@ -27,7 +27,7 @@
   ],
   "author": "jayantur13",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "node-fetch": "^3.3.2"
   },

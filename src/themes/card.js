@@ -1,6 +1,6 @@
-import { formatDate } from "../utils/format.js";
+const { formatDate } = require("../utils/format.js");
 
-export function renderCard(
+function renderCard(
   releases,
   footerText,
   actorUrl,
@@ -46,3 +46,5 @@ export function renderCard(
     showGlobalFooter ? `\n\n[${footerText}](${actorUrl})` : ""
   }`;
 }
+
+module.exports = { renderCard };

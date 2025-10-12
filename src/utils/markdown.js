@@ -1,6 +1,6 @@
-import fs from "fs";
+const fs = require("fs");
 
-export function updateSection(readmePath, newMarkdown, headerTitle) {
+function updateSection(readmePath, newMarkdown, headerTitle) {
   const START = "<!--LATEST_RELEASES_START-->";
   const END = "<!--LATEST_RELEASES_END-->";
   const content = fs.readFileSync(readmePath, "utf8");
@@ -39,15 +39,9 @@ export function updateSection(readmePath, newMarkdown, headerTitle) {
   }
 
   const header =
-    headerTitle && headerTitle.trim() !== ""
-      ? `${headerTitle.trim()}\n\n`
-      : "";
+    headerTitle && headerTitle.trim() !== "" ? `${headerTitle.trim()}\n\n` : "";
 
-  const replacement = [
-    START,
-    header + newMarkdown.trim(),
-    END,
-  ];
+  const replacement = [START, header + newMarkdown.trim(), END];
 
   const updated = [
     ...lines.slice(0, targetStart),
@@ -58,3 +52,5 @@ export function updateSection(readmePath, newMarkdown, headerTitle) {
   fs.writeFileSync(readmePath, updated);
   console.log("✅ Release section updated outside code fences.");
 }
+
+module.exports = { updateSection };

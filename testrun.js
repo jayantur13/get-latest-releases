@@ -1,5 +1,5 @@
 // test.js
-import run from "./index.js";
+const { run } = require("./src/index.js");
 
 // Normalize multi-line repo list
 if (process.env.INPUT_REPOS?.includes("\\n")) {

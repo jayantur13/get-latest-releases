@@ -13,26 +13,21 @@ Example Below
 ## New Release
 
 <!--LATEST_RELEASES_START-->
-> 💠 **[vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.1) — v16.0.0-canary.1**  
->  ⚠️ *Pre-release* _Oct 11, 2025_
+> 💠 **[vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.2) — v16.0.0-canary.2**  
+>  ⚠️ *Pre-release* _Oct 12, 2025_
 > <details>
 > <summary>📜 View details</summary>
 >
-> ### Core Changes
-> 
-> - Version gate migration docs link: #84740
-> - [Cache Components] Allow hiding logs after abort: #84579
-> - Log `Compiled proxy in ...`: #84746
-> 
 > ### Misc Changes
 > 
-> - [next-upgrade] misc: update comment: #84727
-> - Turbopack: use vector instead of hash map: #84696
-> - Revert "docs: nav_title for long unbroken words (#84233)": #84346
-> - [turbopack] tweak the doc on the inner graph optimization: #84752
-> - [turbopack] Fix a few references to caching configuration as it is no longer canary guarded: #84761
-> - Add 16.0.0-beta.0 to next/third-parties peerDeps: #84741
-> - [eslint-plugin] Remove `eslint-v8` testing: #84721
+> - Update Rspack production test manifest: #84729
+> - Update Rspack development test manifest: #84730
+> - fix: release next-rspack ci: #84673
+> 
+> ### Credits 
+> 
+> Huge thanks to @vercel-release-bot and @SyMind for helping!
+> 
 >
 > [🔗 See all releases →](https://github.com/vercel/next.js/releases)
 > </details>

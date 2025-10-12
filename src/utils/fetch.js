@@ -1,8 +1,10 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch").default;
 
-export async function getLatestRelease(repo, { headers, excludePrereleases = true }) {
+async function getLatestRelease(repo, { headers, excludePrereleases = true }) {
   try {
-    const res = await fetch(`https://api.github.com/repos/${repo}/releases`, { headers });
+    const res = await fetch(`https://api.github.com/repos/${repo}/releases`, {
+      headers,
+    });
     if (!res.ok) throw new Error(`Failed to fetch ${repo}: ${res.statusText}`);
 
     const releases = await res.json();
@@ -28,3 +30,5 @@ export async function getLatestRelease(repo, { headers, excludePrereleases = tru
     return null;
   }
 }
+
+module.exports = { getLatestRelease };

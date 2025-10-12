@@ -1,4 +1,4 @@
-export function formatDate(iso, format = "ISO") {
+function formatDate(iso, format = "ISO") {
   if (!iso) return "";
 
   const date = new Date(iso);
@@ -19,7 +19,7 @@ export function formatDate(iso, format = "ISO") {
       return `${Math.floor(diffDays / 365)} years ago`;
     }
 
-    case "short"://Oct 2, 2025 |
+    case "short": //Oct 2, 2025 |
       return date.toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
@@ -31,3 +31,5 @@ export function formatDate(iso, format = "ISO") {
       return date.toISOString().split("T")[0]; // e.g. 2025-10-06
   }
 }
+
+module.exports = { formatDate };

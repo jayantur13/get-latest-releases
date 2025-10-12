@@ -1,6 +1,6 @@
-import { formatDate } from "../utils/format.js";
+const { formatDate } = require("../utils/format.js");
 
-export function renderList(
+function renderList(
   releases,
   footerText,
   actorUrl,
@@ -14,9 +14,9 @@ export function renderList(
       const releasesUrl = `https://github.com/${r.repo}/releases`;
       const dateStr = formatDate(r.published_at, dateFormat);
 
-      const header = `### [${r.repo}](${r.html_url}) — **${r.tag_name}**${preBadge}${
-        dateStr ? ` (${dateStr})` : ""
-      }`;
+      const header = `### [${r.repo}](${r.html_url}) — **${
+        r.tag_name
+      }**${preBadge}${dateStr ? ` (${dateStr})` : ""}`;
 
       const bodySection =
         includeBody && r.body
@@ -39,3 +39,5 @@ export function renderList(
     showGlobalFooter ? `\n\n[${footerText}](${actorUrl})` : ""
   }`;
 }
+
+module.exports = { renderList };
