@@ -13,6 +13,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install node-fetch@3
+        
       - name: Update latest releases
         uses: jayantur13/get-latest-releases@v1
         with:
