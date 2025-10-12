@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Get Latest Releases
-        uses: jayantur13/get-releases-action@v1
+        uses: jayantur13/get-latest-releases@v1
         with:
           repos: |
             vercel/next.js
@@ -61,7 +61,7 @@ jobs:
           theme: "table"
           include_body: "true"
           exclude_prereleases: "true"
-          header_title: "🚀 Latest Releases"
+          header_title: ""
           footer_link_text: "Explore More →"
           show_global_footer: "true"
           max_repos: "5"
