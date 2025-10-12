@@ -4,7 +4,9 @@
   "description": "GitHub Action to update README with latest releases from specified repositories.",
   "main": "index.js",
   "scripts": {
-    "test:local": "node --env-file=.env testrun.js"
+    "test:local": "node --env-file=.env testrun.js",
+    "build": "ncc build src/index.js -o dist",
+    "prepare": "npm run build"
   },
   "homepage": "https://github.com/jayantur13/get-latest-releases#readme",
   "bugs": {
@@ -15,12 +17,21 @@
     "url": "https://github.com/jayantur13/get-latest-releases.git"
   },
   "keywords": [
-    "action", "automation", "readme-generator", "generator", "auto-bot", "release", "actions-bot"
+    "action",
+    "automation",
+    "readme-generator",
+    "generator",
+    "auto-bot",
+    "release",
+    "actions-bot"
   ],
   "author": "jayantur13",
   "license": "MIT",
   "type": "module",
   "dependencies": {
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4"
   }
 }
