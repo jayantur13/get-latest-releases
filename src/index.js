@@ -91,7 +91,7 @@ async function run() {
   );
 
   console.log("🔍 Checking for changes...");
-  const LAST_FILE = ".last-releases.json";
+  const LAST_FILE = "latest-releases.json";
   let lastReleases = {};
 
   if (fs.existsSync(LAST_FILE)) {
@@ -99,7 +99,7 @@ async function run() {
       lastReleases = JSON.parse(fs.readFileSync(LAST_FILE, "utf8"));
     } catch {
       console.warn(
-        "⚠️  Could not parse .last-releases.json — continuing fresh."
+        "⚠️  Could not parse latest-releases.json — continuing fresh."
       );
     }
   }

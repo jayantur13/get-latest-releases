@@ -1,0 +1,4 @@
+{
+  "vercel/next.js": "v16.0.0-canary.5",
+  "facebook/react": "v19.2.0"
+}

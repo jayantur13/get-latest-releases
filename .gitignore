@@ -20,9 +20,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Action-specific cache
-.last-releases.json
-
 # Optional: if you generate README automatically in tests
 README.test.md
 README.preview.md

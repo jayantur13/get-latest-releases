@@ -13,21 +13,26 @@ Example Below
 ## New Release
 
 <!--LATEST_RELEASES_START-->
-> 💠 **[vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.2) — v16.0.0-canary.2**  
->  ⚠️ *Pre-release* _Oct 12, 2025_
+> 💠 **[vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.5) — v16.0.0-canary.5**  
+>  ⚠️ *Pre-release* _Oct 15, 2025_
 > <details>
 > <summary>📜 View details</summary>
 >
-> ### Misc Changes
+> ### Core Changes
 > 
-> - Update Rspack production test manifest: #84729
-> - Update Rspack development test manifest: #84730
-> - fix: release next-rspack ci: #84673
-> 
-> ### Credits 
-> 
-> Huge thanks to @vercel-release-bot and @SyMind for helping!
-> 
+> - feat: using @next/rspack-core: #84221
+> - Upgrade React from `ead92181-20251010` to `d7215b49-20251013`: #84850
+> - Turbopack build: Switch to using workerthreads for process: #84818
+> - [Cache Components] Dev - restart render on cache miss: #84088
+> - Update font data: #84785
+> - Fix build compile mode if pages dir does not exist in Next.js 16: #84783
+> - improve next config schema validation errors: #84847
+> - Upgrade React from `d7215b49-20251013` to `56e84692-20251014`: #84860
+> - warnOnce for Middleware deprecation: #84862
+> - Add codemod for Middleware API to Proxy API: #84824
+> - Deprecate Middleware API and add Proxy API: #84764
+> - remove `clientParamParsing` configuration & bundle it with `cacheComponents`: #84763
+> - remove dynamicIO flag: #84872
 >
 > [🔗 See all releases →](https://github.com/vercel/next.js/releases)
 > </details>
