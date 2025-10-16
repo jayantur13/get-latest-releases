@@ -1,4 +1,4 @@
-function formatDate(iso, format = "ISO") {
+export function formatDate(iso, format = "ISO") {
   if (!iso) return "";
 
   const date = new Date(iso);
@@ -32,4 +32,4 @@ function formatDate(iso, format = "ISO") {
   }
 }
 
-module.exports = { formatDate };
+

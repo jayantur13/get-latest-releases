@@ -1,6 +1,6 @@
-const { formatDate } = require("../utils/format.js");
+import { formatDate } from "../utils/format.js";
 
-function renderTable(
+export function renderTable(
   releases,
   footerText,
   actorUrl,
@@ -53,4 +53,3 @@ function renderTable(
     .trim();
 }
 
-module.exports = { renderTable };
