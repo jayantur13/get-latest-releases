@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:local": "node --env-file=.env testrun.js",
-    "build": "ncc build src/index.js -o dist",
+    "build": "esbuild src/index.js --bundle --platform=node --format=esm --outfile=dist/index.js",
     "prepare": "npm run build"
   },
   "homepage": "https://github.com/jayantur13/get-latest-releases#readme",
@@ -27,11 +27,11 @@
   ],
   "author": "jayantur13",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4"
+    "esbuild": "0.25.11"
   }
 }

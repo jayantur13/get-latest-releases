@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-function updateSection(readmePath, newMarkdown, headerTitle) {
+export function updateSection(readmePath, newMarkdown, headerTitle) {
   const START = "<!--LATEST_RELEASES_START-->";
   const END = "<!--LATEST_RELEASES_END-->";
   const content = fs.readFileSync(readmePath, "utf8");
@@ -53,4 +53,3 @@ function updateSection(readmePath, newMarkdown, headerTitle) {
   console.log("✅ Release section updated outside code fences.");
 }
 
-module.exports = { updateSection };

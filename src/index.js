@@ -1,11 +1,11 @@
-const fs = require("fs");
-const { getLatestRelease } = require("./utils/fetch.js");
-const { updateSection } = require("./utils/markdown.js");
-const { autoCommit } = require("./utils/commit.js");
-const { renderTable } = require("./themes/table.js");
-const { renderList } = require("./themes/list.js");
-const { renderCard } = require("./themes/card.js");
-const { renderCompact } = require("./themes/compact.js");
+import fs from "fs";
+import { getLatestRelease } from "./utils/fetch.js";
+import { updateSection } from "./utils/markdown.js";
+import { autoCommit } from "./utils/commit.js";
+import { renderTable } from "./themes/table.js";
+import { renderList } from "./themes/list.js";
+import { renderCard } from "./themes/card.js";
+import { renderCompact } from "./themes/compact.js";
 
 const INPUT = (name, def) => process.env[`INPUT_${name.toUpperCase()}`] || def;
 
@@ -34,7 +34,7 @@ if (!REPOS.length) {
   process.exit(1);
 }
 
-async function run() {
+export async function run() {
   console.log("📘 Checking README.md for release section markers...");
   const readme = fs.existsSync(README) ? fs.readFileSync(README, "utf8") : "";
 
@@ -134,11 +134,11 @@ async function run() {
   }
 }
 
-if (require.main === module) {
-  // Run automatically if this file is executed directly (CLI or GitHub Action)
+if (import.meta.url === `file://${process.argv[1]}`) {
   run();
-} else if (process.env.DEBUG) {
+}
+
+if (import.meta.url !== `file://${process.argv[1]}` && process.env.DEBUG) {
   console.log("🧪 Index.js imported (not auto-running)...");
 }
 
-module.exports = { run };
