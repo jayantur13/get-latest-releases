@@ -1,4 +1,4 @@
-// test.js
+// testrun.js
 import { run } from "./src/index.js";
 
 // Normalize multi-line repo list

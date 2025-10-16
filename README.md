@@ -110,7 +110,9 @@ jobs:
 ## New Release
 
 <!--LATEST_RELEASES_START-->
-### [vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.1) — **v16.0.0-canary.1** ⚠️ *Pre-release* (Oct 10, 2025)
+
+### [vercel/next.js](https://github.com/vercel/next.js/releases/tag/v16.0.0-canary.1) — **v16.0.0-canary.1** ⚠️ _Pre-release_ (Oct 10, 2025)
+
 <details>
 <summary>🔍 View Release Details</summary>
 
@@ -130,15 +132,16 @@ jobs:
 - Add 16.0.0-beta.0 to next/third-parties peerDeps: #84741
 - [eslint-plugin] Remove `eslint-v8` testing: #84721
 
-### Credits 
+### Credits
 
 Huge thanks to @devjiwonchoi, @mischnic, @icyJoseph, @gnoff, and @lukesandberg for helping!
 
-
 [🔗 See all releases →](https://github.com/vercel/next.js/releases)
+
 </details>
 
 ### [facebook/react](https://github.com/facebook/react/releases/tag/v19.2.0) — **v19.2.0** (Oct 1, 2025)
+
 <details>
 <summary>🔍 View Release Details</summary>
 
@@ -164,9 +167,11 @@ Read the [React 19.2 release post](https://react.dev/blog/2025/10/01/react-19-2)
 - Updated [`prerender`](https://react.dev/reference/react-dom/static/prerender) APIs to return a `postponed` state that can be passed to the `resume` APIs.
 
 [🔗 See all releases →](https://github.com/facebook/react/releases)
+
 </details>
 
 [Explore More →](https://github.com/jayantur13?tab=repositories)
+
 <!--LATEST_RELEASES_END-->
 
 ---
@@ -209,8 +214,9 @@ Run npm run test:local
 > ![list view](/src/theme_image/ss_list.jpeg)
 
 > Compact View
+> ![compact view](/src/theme_image/ss_compact.jpeg)
 
-## ![compact view](/src/theme_image/ss_compact.jpeg)
+---
 
 ## 📢 Changelog
 
